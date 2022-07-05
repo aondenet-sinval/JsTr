@@ -1,0 +1,12 @@
+interface Pessoa{
+    nome: string,
+    sobrenome: string,
+    idade: number
+}
+
+let homem: Pessoa = {
+    nome: "Sinval",
+    //sobrenome: "Gomes dos Santos",
+    idade: 52
+}
+console.log(homem.nome + " "+ homem.sobrenome + " " + homem.idade);

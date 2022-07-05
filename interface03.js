@@ -1,0 +1,18 @@
+var Carrinho = {
+    descricao: 'Carrinho manual',
+    cor: 'branco',
+    preco: 45.00,
+    altura: 10,
+    tipo: 'manual'
+};
+console.log("Detalhes: " + Carrinho.descricao + " " + Carrinho.cor
+    + " " + Carrinho.preco + " " + Carrinho.altura + " " + Carrinho.tipo);
+function imprimirResultado(res) {
+    if (res.altura >= 6) {
+        return res.altura + ' é uma altura ideal!';
+    }
+    else {
+        return res.altura + ' não é uma altura ideal!';
+    }
+}
+console.log(imprimirResultado({ descricao: 'oooi', cor: 'preto', preco: 39, altura: 3, tipo: 'eletrico' }));

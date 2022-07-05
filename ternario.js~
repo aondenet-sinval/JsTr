@@ -1,0 +1,2 @@
+const number = 10;
+console.log(number == 10 ? 'o numero é' + number : 'não existe esse número');
