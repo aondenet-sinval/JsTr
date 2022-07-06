@@ -18,7 +18,7 @@ let Carrinho: Brinquedo = {
   tipo: 'manual'
 }
 console.log("Detalhes: " + Carrinho.descricao + " " + Carrinho.cor
-  + " " + Carrinho.preco  + " "+ Carrinho.altura + " " + Carrinho.tipo);
+  + " " + Carrinho.preco  + " "+ Carrinho.altura + " cm " + Carrinho.tipo);
 function imprimirResultado(res: Brinquedo) {
   if (res.altura >= 6) {
     return res.altura + ' cm é uma altura ideal!';
@@ -26,4 +26,4 @@ function imprimirResultado(res: Brinquedo) {
     return res.altura + ' cm não é uma altura ideal!';
   }
 }
-console.log(imprimirResultado({descricao:'oooi', cor:'preto', preco:39, altura:3, tipo:'eletrico'}));
+console.log(imprimirResultado({altura:3}));

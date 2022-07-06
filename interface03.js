@@ -6,13 +6,13 @@ var Carrinho = {
     tipo: 'manual'
 };
 console.log("Detalhes: " + Carrinho.descricao + " " + Carrinho.cor
-    + " " + Carrinho.preco + " " + Carrinho.altura + " " + Carrinho.tipo);
+    + " " + Carrinho.preco + " " + Carrinho.altura + " cm " + Carrinho.tipo);
 function imprimirResultado(res) {
     if (res.altura >= 6) {
-        return res.altura + ' é uma altura ideal!';
+        return res.altura + ' cm é uma altura ideal!';
     }
     else {
-        return res.altura + ' não é uma altura ideal!';
+        return res.altura + ' cm não é uma altura ideal!';
     }
 }
-console.log(imprimirResultado({ descricao: 'oooi', cor: 'preto', preco: 39, altura: 3, tipo: 'eletrico' }));
+console.log(imprimirResultado({ altura: 3 }));
