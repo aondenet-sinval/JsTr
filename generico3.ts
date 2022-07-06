@@ -2,7 +2,7 @@
 function pegarArray<Tipo1, Tipo2>(valores: any[]):any[] {
   return new Array().concat(valores);
 }
-//Declarando as variáveis com diferentes tipos
+//Declarando as variáveis com diferentes tipos GARANTIDOS
 let nomes = pegarArray<string, number>(['Nelsom',20]);
 let numeros = pegarArray<number, string>([12,'Flavia']);
 console.log(nomes);//[ 'Nelsom', 'Roberto', 'Ana' ]
