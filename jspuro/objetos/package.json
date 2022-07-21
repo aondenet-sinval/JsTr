@@ -1,0 +1,14 @@
+{
+  "name": "objetos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prop_1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sinval Gomes dos Santos",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
