@@ -16,6 +16,6 @@ Object.prototype.autor = {nome: 'Biafra', sobrenome: 'Sss'};
 console.log(Object.prototype.autor.nome);
 //Herdando do Object prototype
 let musicasMpb = new Object();//instancia do objeto musicas
-//Referenciando para a propriedade titulo do objeto instanciado
+//Definindo valor da propriedade titulo do objeto instanciado
 Object.prototype.titulo = 'Lilás';
 console.log(musicasMpb.titulo);
