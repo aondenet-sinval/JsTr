@@ -20,4 +20,3 @@ function Faixa(a, b){
 var r = new Faixa(1,4);// Cria um objeto Faixa
 r.contem(5);// => verdadeiro: 2 está no intervalo
 r.foreach(console.log);// Imprime 1 2 3
-console.log(r.b);
