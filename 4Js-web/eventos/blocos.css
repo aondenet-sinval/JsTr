@@ -7,3 +7,26 @@ div{
     margin: 10px;
     flex-wrap: wrap;
 }
+button{
+  margin: 5px;
+  border-radius: 10px;
+  padding: 5px;
+}
+/*formulário:*/
+form{
+  display:flex;
+  flex-direction: column;
+  background-color: green;
+  width: 300px;
+  font: green bold;
+  align-items: center;
+}
+#fname{
+  width: 200px;
+}
+#lname{
+  width: 200px;
+}
+#submit{
+  width: 90px;
+}
