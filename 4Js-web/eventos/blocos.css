@@ -1,0 +1,9 @@
+.row{
+  display: flex;
+  flex-direction: row;
+}
+div{
+    max-width: 300px;
+    margin: 10px;
+    flex-wrap: wrap;
+}
