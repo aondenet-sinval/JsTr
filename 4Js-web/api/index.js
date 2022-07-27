@@ -7,7 +7,7 @@ http.createServer(function (request, response) {
 
     var filePath = '.' + request.url;
     if (filePath == './') {
-        filePath = './audio.html';
+        filePath = './index.html';
     }
     /*
     if (filePath == './ajaxreq.html') {
