@@ -1,3 +1,18 @@
 .bolds{
   width: 100px;
 }
+.page{
+  display: flex;
+}
+.coluna-esquerda{
+  flex-direction: column;
+  border: solid blue 5px;
+  padding: 5px;
+  width: 200px;
+}
+.coluna-direita{
+  flex-direction: column;
+  border: solid blue 5px;
+  padding: 5px;
+  width: 200px;
+}
