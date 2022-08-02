@@ -1,0 +1,16 @@
+{
+  "name": "node-mysql",
+  "version": "1.0.0",
+  "description": "Treinamento w3schools backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sinval Gomes dos Santos",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "readline-sync": "^1.4.10"
+  }
+}

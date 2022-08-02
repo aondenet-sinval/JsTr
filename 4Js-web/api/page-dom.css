@@ -16,3 +16,8 @@
   padding: 5px;
   width: 200px;
 }
+.estilo-embutido{
+  color: white;
+  background-color: green;
+  font-size: 12px;
+}

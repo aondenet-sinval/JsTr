@@ -8,13 +8,16 @@
   </head>
   <body>
     <nav >
-    <ul class="navegacao">
-      <li><a href="index.html">Index</a></li>
-      <li><a href="audio.html">Audio</a></li>
-      <li><a href="page-dom.html">DOM</a></li>
-    </ul>
+      <ul class="navegacao">
+        <li><a href="index.html">Index</a></li>
+        <li><a href="audio.html">Audio</a></li>
+        <li><a href="page-dom.html">DOM</a></li>
+        <li><a href="form.html">Formulário</a></li>
+      </ul>
     </nav>
-    <h1>Manipulando o DOM:</h1>
+    <h1>
+      Manipulando o DOM:
+    </h1>
     <div class="page">
       <section class="coluna-esquerda">
         <h3>Manipulação de links:</h3>
@@ -32,13 +35,36 @@
         <b class="bolds"></b>
       </section>
       <section class="coluna-direita">
-        <h3>Mover parágrafo</h3>
-        <button type="button" name="button">Mover</button>
+        <h3>
+          Mover parágrafo
+        </h3>
+        <button type="button" name="button">
+          Mover
+        </button>
+        <button type="button" name="button" class="remover">
+          Remover
+        </button>
         <p class="texto-movido"></p>
-        <button type="button" name="button" class="remover">Remover</button>
+        <h3>
+          Lista de compras:
+        </h3>
+        <form class=""  method="post">
+          <label for="item">
+            Cadastre o item:
+          </label>
+          <input type="text" name="item">
+          <button type="button" name="button"
+                  class="add-item">
+            Adicionar item
+          </button>
+          <ul class="lista">
+
+          </ul>
+        </form>
+
       </section>
     </div>
-
-    <script src="page-dom.js" charset="utf-8"></script>
+    <script src="page-dom.js" charset="utf-8">
+    </script>
   </body>
 </html>

@@ -18,7 +18,7 @@ form{
   flex-direction: column;
   background-color: green;
   width: 300px;
-  font: green bold;
+  color: green;
   align-items: center;
 }
 #fname{

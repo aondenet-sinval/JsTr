@@ -1,0 +1,5 @@
+
+  "codigo": 001,
+  "nome": "Bolsa infantil",
+  "descricao": "Bolsa escolar infantil",
+  "preco": 120

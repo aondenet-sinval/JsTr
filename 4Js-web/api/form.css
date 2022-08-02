@@ -1,0 +1,18 @@
+form{
+  background-color: blue;
+  width: 300px;
+  border: 10px solid black;
+}
+input{
+  background-color: blue;
+}
+textarea{
+  background-color: inherit;
+  margin: 8px;
+  max-width: 280px;
+}
+input:focus, textarea:focus{
+  background-color: black;
+  color: white;
+  font-style: italic;
+}

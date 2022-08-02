@@ -1,0 +1,14 @@
+{
+  [{
+  "codigo": 001,
+  "nome": "Desenvolvimento com React",
+  "descricao": "Desenvolvimento de frontend",
+  "preco": 120
+}],
+  [{
+  "codigo": 002,
+  "nome": "Ajax",
+  "descricao": "Implementação com api web ajax",
+  "preco": 120
+}]
+}
