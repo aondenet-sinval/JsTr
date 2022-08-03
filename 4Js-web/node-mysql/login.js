@@ -5,7 +5,7 @@ console.log("Escolha uma opção de acesso a seguir!");
 const tipoCadastro = readline
     .question("\n 1 - Cadastros." +
               "\n 2 - Consultas." +
-              "Digite a escolha: ");
+              "\n Digite a escolha: ");
 switch (tipoCadastro) {
   case '1':
     cadastrar.cadastros();

@@ -6,9 +6,10 @@ exports.cadastros = function(){
       .question("\n 1 - Produtos." +
                 "\n 2 - Funcionários." +
                 "\n 3 - Clientes." +
-                "\n 4 - Estoque" +
-                "\n 5 - Despesas"+
-                "Digite a escolha: ");
+                "\n 4 - Vendas." +
+                "\n 5 - Fornecedores. " +
+                "\n 6 - Despesas. " +
+                "\n Digite a escolha: ");
   switch (tipoCadastro) {
     case '1':
       cadastroProdutos();
@@ -19,12 +20,19 @@ exports.cadastros = function(){
       break;
     case '3':
     //Cadastro de clientes:
+    cadastroClientes();
       break;
     case '4':
-    //Adastro de estoque:
+    //Cadastro de estoque:
+    cadastroVendas();
       break;
     case '5':
+    //Cadastro de Fornecedores:
+      cadastroFornecedores();
+      break;
+    case '6':
     //Cadastro de despesas:
+      cadastroDespesas();
       break;
     default:
   }
@@ -57,7 +65,7 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 produto cadastrado com sucesso!");
-        const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
+        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
     });
   }
@@ -95,7 +103,138 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Funcionário cadastrado com sucesso!");
-        const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
+        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
+      });
+    });
+  }
+  function cadastroClientes(){
+    //Cadastro de produtos
+    const id = parseInt(readline.question("Registre o id: "));
+    const nome = readline.question("Nome: ");
+    const cpf = readline.question("Cpf: ");
+    const endereco = readline.question("Endereço: ");
+    const telefone = readline.question("Telefone: " );
+    const valor = parseFloat(readline
+      .question("Total compra: "));
+    const data = readline.question("Data de compra(ano-mês-dia): ");
+    //
+    console.log("Insira seu login e senha a seguir.");
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    let con = mysql.createConnection({
+    host: "localhost",
+    user: user,
+    password: senha,
+    database: "vendas_apresentacao"
+  });
+
+    con.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
+      var sql = "INSERT INTO clientes ( id, nome, cpf, endereco," +
+                  " telefone, valor, data) VALUES ('" + id + "','" + nome +
+                  "','" + cpf + "','" + endereco + "','" + telefone +
+                  "','" + valor + "','" + data + "')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("Cliente cadastrado com sucesso!");
+        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
+      });
+    });
+  }
+  function cadastroVendas(){
+    //Cadastro de produtos
+    const codigo = parseInt(readline.question("Código: "));
+    const descricao = readline.question("Descrição: ");
+    const qtde = parseInt(readline.question("Quantidade: "));
+    const preco_un = parseFloat(readline.question("Preço venda: " ));
+    const data = readline.question("Data de venda(ano-mês-dia): ");
+    const subtotal = qtde * preco_un;
+    const cliente_id = parseInt(readline.question("Id do cliente: "));
+    //
+    console.log("Insira seu login e senha a seguir.");
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    let con = mysql.createConnection({
+    host: "localhost",
+    user: user,
+    password: senha,
+    database: "vendas_apresentacao"
+  });
+
+    con.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
+      var sql = "INSERT INTO registros_vendas (codigo, descricao, qtde," +
+                  " preco_un, subtotal, data, cliente_id) VALUES ('" + codigo +
+                  "','" + descricao + "','" + qtde + "','" + preco_un +
+                  "','" + subtotal + "','" + data +
+                  "','" + cliente_id + "')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("Venda cadastrada com sucesso!");
+        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
+      });
+    });
+  }
+  function cadastroFornecedores(){
+    //Cadastro de produtos
+    const codigo = parseInt(readline.question("Código do fornecedor: "));
+    const nome = readline.question("Nome: ");
+    const endereco = readline.question("Endereço: " );
+    const telefones = readline.question("Telefones: ");
+    const cnpj = readline.question("Cnpj: ");
+    //
+    console.log("Insira seu login e senha a seguir.");
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    let con = mysql.createConnection({
+    host: "localhost",
+    user: user,
+    password: senha,
+    database: "vendas_apresentacao"
+  });
+
+    con.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
+      var sql = "INSERT INTO fornecedores ( codigo, nome, endereco," +
+                  " telefones, cnpj) VALUES ('" + codigo +
+                  "','" + nome + "','" + endereco + "','" + telefones +
+                  "','" + cnpj + "')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("Fornecedor cadastrado com sucesso!");
+        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
+      });
+    });
+  }
+  function cadastroDespesas(){
+    //Cadastro de produtos
+    const descricao = readline.question("Descrição da despesa: ");
+    const subtotal = readline.question("Custo: " );
+    const data = readline.question("Data: ");
+    //
+    console.log("Insira seu login e senha a seguir.");
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    let con = mysql.createConnection({
+    host: "localhost",
+    user: user,
+    password: senha,
+    database: "vendas_apresentacao"
+  });
+
+    con.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
+      var sql = "INSERT INTO despesas ( descricao, subtotal, data)" +
+                  " VALUES ('" + descricao + "','" + subtotal +
+                  "','" + data + "')";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("Despesa cadastrada com sucesso!");
+        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
     });
   }

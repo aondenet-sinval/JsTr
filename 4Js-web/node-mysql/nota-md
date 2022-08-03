@@ -2,5 +2,13 @@
 
 vendas_apresentacao.sql : crie rapidamente o banco mysql para teste
 
-.js arquivos terminados com o sufixo (js) poderão ser executados para a função nomeada no arquivo.
-Exemplo: select.js leia a tabela no banco de dados selecionado...
+rode o comando: node login
+
+**Implementações feitas:**
+
+Cadastros de Produtos, Funcionários, Clientes e Vendas.
+
+
+**Lista de implementações futuras:**
+
+Próximo passo => consultas gerais: produtos, vendas, clientes, fornecedores, despesas, funcionários.
