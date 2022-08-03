@@ -1,0 +1,6 @@
+#Arquivos:
+
+vendas_apresentacao.sql : crie rapidamente o banco mysql para teste
+
+.js arquivos terminados com o sufixo (js) poderão ser executados para a função nomeada no arquivo.
+Exemplo: select.js leia a tabela no banco de dados selecionado...
