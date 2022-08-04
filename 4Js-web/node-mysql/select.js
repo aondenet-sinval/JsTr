@@ -1,63 +1,86 @@
 const mysql = require('mysql2');
 const readline = require('readline-sync');
+exports.consulta = function(){
+  const opt = readline
+  .question("Escolha o tipo de busca:" +
+                "\n 1 - pesquisar vendas por codigo do produto." +
+                "\n 2 - pesquisar clientes por CPF." +
+                "\n 3 - pesquisar fornecedores por nome." +
+                "\n 4 - pesquisar funcionários por nome." +
+                "\n 5 - pesquisar estoque por codigo do produto.\n");
+  switch (opt) {
+    case '1':
+      pesquisarVendas();
+      break;
+    case '2':
+      pesquisarClientes();
+      break;
+    case '3':
+      pesquisarFornecedores();
+      break;
+    default:
+      console.log("Entre novamente e digite uma opção de pesquisa.");
+      break;
+  }
 
-const opt = readline
-      .question("Escolha sua forma de conexão ao BD: " +
-                    "\n 1 - interativa " +
-                    "\n 2 - estática: ");
-
-if (opt == 1) {
+  function pesquisarVendas() {
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     var con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-}else if (opt == 2) {
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
+    let codigo = parseInt(readline.question("Código do produto: "));
+    let pesquisa = "SELECT * FROM registros_vendas WHERE codigo = " + codigo;
+    con.connect(function(err) {
+      if (err) throw err;
+      con.query(pesquisa, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      });
+      con.end();
+    });
+  }
+  function pesquisarClientes() {
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
     var con = mysql.createConnection({
-    host: "localhost",
-    user: "",//insira aqui seu usuário
-    password: "",//senha
-    database: "vendas_apresentacao"//banco de dados
-  });
-}
-const pesquisar = readline
-  .question("Escolha o tipo de busca:" +
-                "\n 1 - pesquisa por codigo do produto" +
-                "\n 2 - pesquisar todos os produtos " +
-                "\n 3 - outros(exemplo: clientes, estoque. etc): ");
-if (pesquisar  == 1) {
-  let codigo = parseFloat(readline.question("Código do produto: "));
-  let tabela = readline.question("Digite a tabela: ");
-  let pesquisa = "SELECT * FROM " + tabela +  " WHERE codigo = " + codigo;
-  con.connect(function(err) {
-    if (err) throw err;
-    con.query(pesquisa, function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
     });
-  });
-} else if (pesquisar == 2) {
-  let tabela = readline.question("Digite a tabela: ");
-  let pesquisa = "SELECT * FROM " + tabela;
-  con.connect(function(err) {
-    if (err) throw err;
-    con.query(pesquisa, function (err, result, fields) {
+    let cpf = readline.question("CPF do cliente: ");
+    let pesquisa = "SELECT * FROM clientes WHERE cpf='" + cpf + "'";
+    con.connect(function(err) {
       if (err) throw err;
-      console.log(result);
+      con.query(pesquisa, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      });
+      con.end();
     });
-  });
-} else if (pesquisar == 3) {
-  let tabela = readline.question("Digite a tabela: ");
-  let pesquisa = "SELECT * FROM " + tabela;
-  con.connect(function(err) {
-    if (err) throw err;
-    con.query(pesquisa, function (err, result, fields) {
+  }
+  function pesquisarFornecedores() {
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
+    let nome = readline.question("Nome: ");
+    let pesquisa = "SELECT * FROM fornecedores WHERE nome='" + nome + "'";
+    con.connect(function(err) {
       if (err) throw err;
-      console.log(result);
+      con.query(pesquisa, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      });
+      con.end();
     });
-  });
-  con.close();
+  }
 }

@@ -1,4 +1,5 @@
 const cadastrar = require('./insert.js');
+const pesquisar = require('./select.js');
 const readline = require('readline-sync');
 
 console.log("Escolha uma opção de acesso a seguir!");
@@ -11,7 +12,7 @@ switch (tipoCadastro) {
     cadastrar.cadastros();
     break;
   case '2':
-    console.log("Aguarde...");
+    pesquisar.consulta();
     break;
   default:
     console.log("Você foi desconectado pois não escolheu nenhuma opção!");

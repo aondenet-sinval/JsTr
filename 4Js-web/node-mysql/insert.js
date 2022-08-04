@@ -1,7 +1,11 @@
 const readline = require('readline-sync');
 const mysql = require('mysql2');
+//Descomente abaixo e remova a variável acima
+//Caso sua versão do cliente mysql seja recente
+//const mysql = require('mysql');//Requer versão mais recente
 exports.cadastros = function(){
-  console.log("Bem vindo. Escolha uma opção para cadastro a seguir!");
+
+  console.log("Bem vindo ao cadastro. Escolha uma opção!");
   const tipoCadastro = readline
       .question("\n 1 - Produtos." +
                 "\n 2 - Funcionários." +
@@ -45,16 +49,15 @@ exports.cadastros = function(){
       .question("Preço unitário de compra: "));
     const data_compra = readline.question("Data de compra(ano-mês-dia): ");
     //
-    console.log("Bem vindo. Insira seu login e senha a seguir.");
+    console.log("Insira seu login e senha a seguir.");
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     let con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -65,8 +68,8 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 produto cadastrado com sucesso!");
-        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
+      con.end();
     });
   }
   function cadastroFuncionarios(){
@@ -82,16 +85,15 @@ exports.cadastros = function(){
       data_demissao = '2011-12-02';
     }
     //
-    console.log("Bem vindo. Insira seu login e senha a seguir.");
+    console.log("Insira seu login e senha a seguir.");
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     let con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -103,8 +105,8 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Funcionário cadastrado com sucesso!");
-        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
+      con.end();
     });
   }
   function cadastroClientes(){
@@ -122,12 +124,11 @@ exports.cadastros = function(){
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     let con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -138,8 +139,8 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Cliente cadastrado com sucesso!");
-        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
+      con.end();
     });
   }
   function cadastroVendas(){
@@ -156,12 +157,11 @@ exports.cadastros = function(){
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     let con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -173,28 +173,27 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Venda cadastrada com sucesso!");
-        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
+      con.end();
     });
   }
   function cadastroFornecedores(){
-    //Cadastro de produtos
+    //Cadastro de fornecedores
     const codigo = parseInt(readline.question("Código do fornecedor: "));
     const nome = readline.question("Nome: ");
     const endereco = readline.question("Endereço: " );
-    const telefones = readline.question("Telefones: ");
-    const cnpj = readline.question("Cnpj: ");
+    const telefones = readline.question("Telefone(s): ");
+    const cnpj = readline.question("Cnpj sem pontos e barra (. /): ");
     //
     console.log("Insira seu login e senha a seguir.");
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     let con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -205,12 +204,12 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Fornecedor cadastrado com sucesso!");
-        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
+      con.end();
     });
   }
   function cadastroDespesas(){
-    //Cadastro de produtos
+    //Cadastro de despesas
     const descricao = readline.question("Descrição da despesa: ");
     const subtotal = readline.question("Custo: " );
     const data = readline.question("Data: ");
@@ -219,12 +218,11 @@ exports.cadastros = function(){
     let user = readline.question("Digite o usuário: ");
     let senha = readline.question("Digite a senha: ");
     let con = mysql.createConnection({
-    host: "localhost",
-    user: user,
-    password: senha,
-    database: "vendas_apresentacao"
-  });
-
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
     con.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
@@ -234,8 +232,8 @@ exports.cadastros = function(){
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Despesa cadastrada com sucesso!");
-        //const opt = readline.question("Tecle 1 para cadastrar outro produto ou 2 para sair: ");
       });
+      con.end();
     });
   }
 }
