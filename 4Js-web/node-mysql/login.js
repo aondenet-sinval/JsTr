@@ -16,7 +16,7 @@ switch (tipoCadastro) {
     let tipo = readline
       .question("Digite: " +
           "\n 1 - para trazer resultados em grupo. " +
-          "\n 2 - para pesquisa individual." +
+          "\n 2 - para resultado de pesquisa individual." +
           "\n 3 - para sair.")
     if (tipo == '1') {
       pesquisarGrupo.consultaGrupo();

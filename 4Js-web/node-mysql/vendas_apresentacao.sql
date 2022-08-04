@@ -175,11 +175,6 @@ CREATE TABLE `registros_vendas` (
 -- Dumping data for table `registros_vendas`
 --
 
-LOCK TABLES `registros_vendas` WRITE;
-/*!40000 ALTER TABLE `registros_vendas` DISABLE KEYS */;
-INSERT INTO `registros_vendas` VALUES (22,1024,'PP',10,4.00,40.00,'2022-05-23',1);
-/*!40000 ALTER TABLE `registros_vendas` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

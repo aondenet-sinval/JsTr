@@ -18,6 +18,12 @@ exports.consultaGrupo = function(){
     case '3':
       pesquisarFornecedoresGrupo();
       break;
+    case '4':
+      pesquisarFuncionariosGrupo();
+      break;
+    case '5':
+      pesquisarEstoqueGrupo();
+      break;
     default:
       console.log("Entre novamente e digite uma opção de pesquisa.");
       break;
@@ -64,6 +70,29 @@ exports.consultaGrupo = function(){
       con.end();
     });
   }
+
+  function pesquisarFuncionariosGrupo() {
+    let data = readline.question("Data inicial: ");
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
+
+    let pesquisa = "SELECT * FROM funcionarios WHERE data >='" + data + "'";
+    con.connect(function(err) {
+      if (err) throw err;
+      con.query(pesquisa, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      });
+      con.end();
+    });
+  }
+
   function pesquisarFornecedoresGrupo() {
     let estado = readline.question("Digite o estado. " +
                                     "Exemplo(BA para Bahia): ");
@@ -77,6 +106,27 @@ exports.consultaGrupo = function(){
     });
 
     let pesquisa = "SELECT * FROM fornecedores WHERE endereco LIKE '%" + estado + "%'";
+    con.connect(function(err) {
+      if (err) throw err;
+      con.query(pesquisa, function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      });
+      con.end();
+    });
+  }
+  function pesquisarEstoqueGrupo() {
+    let qtde = readline.question("Digite a quantidade mínima: ");
+    let user = readline.question("Digite o usuário: ");
+    let senha = readline.question("Digite a senha: ");
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: user,
+      password: senha,
+      database: "vendas_apresentacao"
+    });
+
+    let pesquisa = "SELECT * FROM estoque WHERE qtde >='" + qtde + "'";
     con.connect(function(err) {
       if (err) throw err;
       con.query(pesquisa, function (err, result, fields) {
