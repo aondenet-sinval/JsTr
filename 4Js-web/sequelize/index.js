@@ -2,7 +2,8 @@ const readline = require('readline-sync');
 
 const opcao = readline.question("Selecione a opção: \n" +
                                   "1 - Produtos. \n" +
-                                  "2 - Clientes. \n");
+                                  "2 - Clientes. \n" +
+                                  "3 - Caixa. \n");
 
 switch (opcao) {
   case '1':
@@ -130,6 +131,73 @@ switch (opcao) {
             console.log(error);
         }
     })();
+    case '3':
+      (async () => {
+          const database = require('./db');
+          const Venda = require('./venda');
+
+          console.log("Atenção selecione uma opção a seguir. \n");
+
+          const opcao = parseInt(readline
+            .question("Para cadastrar vendas tecle 1." +
+                        "\n Para pesquisar tecle 2." +
+                        "\n Para atualizar tecle 3." +
+                        "\n E para apagar tecle 4."));
+
+          try {
+              const resultado = await database.sync();
+              console.log(resultado);
+              //CRUD
+              switch (opcao) {
+                case 1:
+                  //create
+                  let codigoProduto = parseInt(readline
+                    .question("Insira o código do produto: "));
+                  let nomeProduto = readline
+                    .question("Insira o nome do produto: ");
+                  let descricaoProduto =  readline
+                    .question("Descrição do produto: ");
+                  let precoUnitario = parseFloat(readline
+                  .question("Preço unitário: "));
+                  let qtdeProduto = parseInt(readline
+                    .question("Insira a quantidade: "));
+                  let subtotalProduto = precoUnitario * qtdeProduto;
+                  const resultadoCreate = await Venda.create({
+                    codigo: codigoProduto,
+                    nome: nomeProduto,
+                    descricao: descricaoProduto,
+                    preco_un: precoUnitario,
+                    qtde: qtdeProduto,
+                    subtotal: subtotalProduto
+                  });
+                  console.log(resultadoCreate);
+                  break;
+                case 2:
+                  //read
+                  const vendas = await Venda.findAll();
+                  console.log(vendas);
+                  break;
+                case 3:
+                  //update
+                  const venda = await Venda.findByPk(1);
+                  //console.log(produto);
+                  venda.nome = "Teste";
+                  const resultadoSave = await venda.save();
+                  console.log(resultadoSave);
+                case 4:
+                  //Delete
+                  const vendaDel = await Venda.findByPk(1);
+                  vendaDel.destroy();
+                default:
+                  console.log("Você não escolheu a opção cadastrada. " +
+                                "\n Por isso foi desconectado");
+              }
+
+
+          } catch (error) {
+              console.log(error);
+          }
+      })();
   default:
     console.log("Nenhuma opção selecionada.");
 
