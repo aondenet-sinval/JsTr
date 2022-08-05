@@ -3,13 +3,13 @@ const database = require('./db');
 
 const Venda = database.define('venda', {
     id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER(10),
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
     codigo: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER(6),
         allowNull: false
     },
     nome: {
