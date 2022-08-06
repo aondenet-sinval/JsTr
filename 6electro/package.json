@@ -1,0 +1,14 @@
+{
+  "name": "electron-basico",
+  "version": "1.0.0",
+  "description": "Desenvolvimento tutorial básico",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Sinval Gomes dos Santos",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^20.0.1"
+  }
+}
