@@ -1,15 +1,12 @@
 const readline = require('readline-sync');
 const Venda = require('./venda');
-const Codigo = require('./codigo'); 
+const Preco = require('./preco');
 
-Codigo.hasMany(Venda,{
-  foreignKey: 'codigo'
-});
 const opcao = readline.question("Selecione a opção: \n" +
                                   "1 - Produtos. \n" +
                                   "2 - Clientes. \n" +
                                   "3 - Caixa. \n"  +
-                                  "4 - Código único de produtos.");
+                                  "4 - Cadastrar preços.");
 
 switch (opcao) {
   case '1':
@@ -217,12 +214,12 @@ switch (opcao) {
   case '4':
         (async () => {
             const database = require('./db');
-            const Codigo = require('./codigo');
+            const Preco = require('./preco');
 
             console.log("Atenção selecione uma opção a seguir. \n");
 
             const opcao = parseInt(readline
-              .question("Para cadastrar um código tecle 1." +
+              .question("Para cadastrar tecle 1." +
                           "\n Para pesquisar tecle 2." +
                           "\n Para atualizar tecle 3." +
                           "\n E para apagar  4."));
@@ -236,14 +233,17 @@ switch (opcao) {
                     //create
                     let codigoProduto =  parseInt(readline
                       .question("Defina o código único de produto: "));
-                    const resultadoCreate = await Codigo.create({
-                      codigo: codigoProduto
+                    let precoProduto =  parseFloat(readline
+                      .question("Defina o preço produto: "));
+                    const resultadoCreate = await Preco.create({
+                      codigo: codigoProduto,
+                      preco: precoProduto
                     });
                     console.log(resultadoCreate);
                     break;
                   case 2:
                     //read
-                    const codigos = await Codigo.findAll();
+                    const codigos = await Preco.findAll();
                     console.log(codigos);
                     break;
                   case 3:
@@ -251,7 +251,7 @@ switch (opcao) {
                     //...
                   case 4:
                     //Delete
-                    const codigoDel = await Codigo.findByPk(1);
+                    const codigoDel = await Preco.findByPk(1);
                     codigoDel.destroy();
                   default:
                     console.log("Você não escolheu a opção cadastrada. " +

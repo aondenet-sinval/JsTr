@@ -9,6 +9,11 @@
   "author": "Sinval Gomes dos Santos",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^20.0.1"
+    "electron": "^20.0.1",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
   }
 }

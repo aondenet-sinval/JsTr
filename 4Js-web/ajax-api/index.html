@@ -8,6 +8,33 @@
     <h1>Implementação simples de AJAX:</h1>
     <option value="produtos" class="produtos">Produtos</option>
     <option value="servicos" class="servicos">Serviços</option>
-    <script src="api_1.js" charset="utf-8"></script>
+<form action="" method="post">
+  <label for="nome">Nome:</label>
+  <input type="text" name="nome"  id="nome"><br>
+  <label for="idade">Idade:</label>
+  <input type="number" name="idade" id="idade"><br>
+  <input  type="submit" name="" value="Enviar">
+</form>
+<h3>Formulário de cadastro de vendas:</h3>
+  <form action="" method="post">
+    <label for="user">Usuario:</label>
+    <input type="text" name="Usuario" id="usuario"<br>
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha" id="senha"><br>
+    <label for="codigo">Código:</label>
+    <input type="number" name="codigo" id="codigo"><br>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br>
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" name="descricao"><br>
+    <label for="qtde">Qtde:</label>
+    <input type="number" name="qtde" id="qtde"><br>
+    <label for="qtde">Preço unit:</label>
+    <input type="number" name="preco_un" id="preco_un"><br>
+    <button onclick="cadastroVendas()" type="submit" name="button">Cadastrar</button>
+  </form>
+
+<button onclick="chamar()" type="button" name="button">Chamada</button>
+<script src="api_1.js" charset="utf-8"></script>
   </body>
 </html>

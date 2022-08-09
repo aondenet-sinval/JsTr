@@ -20,3 +20,28 @@ servicos.onclick = function(){
   oReq.open("GET", url);
   oReq.send();
 }
+
+///Pegar dados do formulário?
+const inputNome = document.querySelector("#nome");
+const inputIdade = document.querySelector("#idade");
+function chamar(){
+console.log(inputNome.value);//Pegando valores digitado pelo usuário
+console.log(inputIdade.value);
+}
+
+  function cadastroVendas(){
+    //Cadastro de produtos
+    const codigo = document.querySelector("#codigo");
+    const nome = document.querySelector("#nome");
+    const descricao = document.querySelector("#descricao");
+    const qtde =  document.querySelector("#qtde");
+    const preco_un =  document.querySelector("#preco_un");
+    const subtotal =  qtde. value * preco_un.value;
+
+    //Dados de conexão
+    let usuario =  document.querySelector("#usuario");
+    let senha =  document.querySelector("#senha");
+    console.log(codigo.value);
+    console.log(usuario.value);
+    console.log(senha.value);
+  }

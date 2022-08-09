@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const database = require('./db');
-
+const Preco = require('./preco');
 
 const Venda = database.define('venda', {
     id: {
@@ -30,6 +30,7 @@ const Venda = database.define('venda', {
         type: Sequelize.DOUBLE,
         allowNull: false
     }
+
 });
 
 module.exports = Venda;

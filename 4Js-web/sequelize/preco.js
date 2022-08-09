@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const database = require('./db');
 const Venda = require('./venda');
-const Codigo = database.define('codigo', {
+const Preco = database.define('preco', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -11,8 +11,11 @@ const Codigo = database.define('codigo', {
     codigo: {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    preco: {
+        type: Sequelize.DOUBLE(),
+        allowNull: false
     }
 });
 
-
-module.exports = Codigo;
+module.exports = Preco;
