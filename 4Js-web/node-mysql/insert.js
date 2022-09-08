@@ -110,7 +110,7 @@ exports.cadastros = function(){
     });
   }
   function cadastroClientes(){
-    //Cadastro de produtos
+    //Cadastro de clientes
     const id = parseInt(readline.question("Registre o id: "));
     const nome = readline.question("Nome: ");
     const cpf = readline.question("Cpf: ");
