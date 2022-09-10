@@ -1,4 +1,4 @@
-//Iterando em array co forEach que apenas percorre o array
+//Iterando em array com forEach que apenas percorre o array
 /*
 const arNumber = [1,2,3,4,5,6,7,8,9];
 
