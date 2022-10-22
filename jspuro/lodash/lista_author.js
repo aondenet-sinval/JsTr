@@ -1,4 +1,4 @@
-const lista = [
+const author = [
         {
           author: 'Marguerita O. C.',
           blogs: 18,
@@ -16,5 +16,4 @@ const lista = [
         }
 
 ]
-
-module.exports = lista
+module.exports = author
