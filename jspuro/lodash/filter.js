@@ -11,3 +11,4 @@ console.log('maior ', maior);
 //Selecionando o author que mais publicou
 const result = _.filter(lista, { blogs: maior })
 console.log('author que mais publicou: ', result)
+//Se necessário pegar dados individuais do author use _.forEach
