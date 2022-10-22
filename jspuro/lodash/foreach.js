@@ -5,3 +5,4 @@ let authors = []//inicializamos um array vazio
 _.forEach(lista, function(o) { authors.push(o.author) })//preenchemos o array
 console.log('Dados: ', authors)//imprimindo o array
 //Dados:  [ 'Marguerita O. C.', 'Suellen Orph. S. ', 'Emmanuel Fork T.' ]
+//Mais exemplos
