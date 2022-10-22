@@ -4,6 +4,7 @@
   "description": "Treinamento lodash",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,5 +13,8 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "mongoose": "^6.6.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0"
   }
 }

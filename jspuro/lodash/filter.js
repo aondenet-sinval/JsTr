@@ -7,7 +7,7 @@ _.filter(author, function(o){ maisBlogs.push(o.blogs)})//preenchendo array
 // Definindo o de valor maior
 const maior = _.max(maisBlogs)
 //Selecionando o author que mais publicou
-const result = _.filter(lista, { blogs: maior })
+const result = _.filter(author, { blogs: maior })
 console.log('author que mais publicou: ', result)
 //printando resultado
 // author que mais publicou:  [
