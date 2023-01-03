@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>ok</title>
+</hed>
+<body>
+<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+
+<div id="demo"></div>
+<script type="text/javascript">
+	const setAcesso = async () => {
+	const privacy = await "Aceito a política de privacidade"
+	window.localStorage.setItem(
+	      'inicioLogin', privacy
+	    )
+
+	const concordo = await window.localStorage.getItem('inicioLogin')
+	window.reload(true)
+	}
+	const concordo = window.localStorage.getItem('inicioLogin')
+
+	if(!concordo){
+	const a = 'Antes de navegar nesse site conhe&ccedil;a nossa <a href="#">pol&iacute;tica</a> de privacidade?'
+	const b = 'Caso concorde clique em '
+	const c = '<button onclick="setAcesso()">Aceitar</button>'
+	const apoli = `${a}<br /> ${b} ${c}`
+	  document.getElementById('demo').innerHTML=apoli
+	}
+</script>
+<!-- <script src="./acesso.js" charset="utf-8"></script> -->
+</body>
+</html>

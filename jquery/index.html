@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Conhecendo Jquery</title>
+    <style media="screen">
+      .para1{
+        width: 120px;
+      }
+      .para2{
+        width: 120px;
+      }
+      .container{
+        display: flex;
+      }
+      .row{
+        flex-direction: row;
+
+      }
+      .col{
+        flex-direction: column;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container row">
+      <!-- fade, slides, styles  COL 1-->
+      <div class="col">
+        <p class="para1">Paragrafo 1</p>
+        <p class="para2">Paragrafo 2</p>
+        <p class="para1 clicktohide">Paragrafo 3</p>
+        <p class="para2" onclick="handleClick()" width="120px">Animar/Imagem</p>
+        <img src="./perf.jpg" width="120px" height="200" class="imageslow" />
+      </div>
+      <!-- animate COL 2 -->
+      <div class="col">
+        <p class="para2" onclick="heightFlow()" width="120px">height</p>
+        <img src="./perf.jpg" width="120px" height="200" class="imagesheight" />
+      </div>
+    </div>
+    <script src="jquery-3.6.3.min.js" charset="utf-8"></script>
+
+    <script src="fades.js" charset="utf-8"></script>
+    <script src="slides.js" charset="utf-8"></script>
+    <script src="styles.js" charset="utf-8"></script>
+    <script src="animate.js" charset="utf-8"></script>
+  </body>
+</html>
